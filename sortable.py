@@ -53,10 +53,10 @@ def sortable():
 	for np in range(NumberProducts):
 		listings=[]
 		for nl in range(NumberListings):
-			if (ProductKeySets[np] == ListingKeySets[nl] & ProductKeySets[np]):
+			if (ProductKeySets[np] <= ListingKeySets[nl]):
 				listings.append(ListingObjects[nl])
 		result={'product_name':ProductObjects[np]['product_name'], 'listings':listings}
-		json.dump(result,ff)
+		json.dump(result,ff, ensure_ascii=False)
 		ff.write("\n")
 
 	ff.close()
